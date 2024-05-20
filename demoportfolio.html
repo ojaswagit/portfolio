@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ojaswa-portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(2, 2, 63);
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(18, 18, 62);
+        padding: 0 20px;
+      }
+      nav ul {
+        display: flex;
+        align-items: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+        position: relative;
+      }
+      nav ul li a,
+      nav ul li button {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      nav ul li a:hover,
+      nav ul li button:hover {
+        color: rgb(122, 122, 233);
+      }
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgb(30, 30, 80);
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        min-width: 200px;
+        padding: 10px 0;
+      }
+      .dropdown p {
+        color: white;
+        padding: 10px 20px;
+        margin: 0;
+        white-space: nowrap;
+      }
+      .dropdown p:hover {
+        background-color: rgb(122, 122, 233);
+      }
+      .show {
+        display: block;
+      }
+      main hr {
+        border: 0;
+        background: #9c97f1;
+        height: 1.2px;
+        margin: 40px 84px;
+      }
+      .left {
+        font-size: 1.5rem;
+      }
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 80px 0;
+      }
+      .firstSection > div {
+        width: 30%;
+      }
+      .leftSection {
+        font-size: 3rem;
+      }
+      .rightSection img {
+        width: 80%;
+      }
+      .purple {
+        color: blueviolet;
+      }
+      #element {
+        color: blueviolet;
+      }
+      footer {
+        background-color: #0e0e1a;
+        height: 133px;
+      }
+      .footer {
+        display: flex;
+        margin: 20px 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">ojaswa's portfolio</div>
+        <div class="right">
+          <ul>
+            <li><a href="https://www.example.com">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li>
+              <button onclick="toggleServicesDropdown()">Services</button>
+              <div id="servicesDropdown" class="dropdown">
+                <p>Web Development</p>
+                <p>- Frontend Development</p>
+                <p>- Backend Development</p>
+                <p>- Full Stack Development</p>
+                <p>Machine Learning</p>
+                <p>- Data Preprocessing</p>
+                <p>- Model Training</p>
+                <p>- Model Deployment</p>
+                <p>- Natural Language Processing</p>
+                <p>- Computer Vision</p>
+              </div>
+            </li>
+            <li>
+              <button onclick="toggleProjectsDropdown()">Projects</button>
+              <div id="projectsDropdown" class="dropdown">
+                <p>Stock Market Prediction</p>
+                <p>Portfolio Website</p>
+                <p>Enhanced Face Recognition</p>
+                <p>Online Shopping Cart (DBMS)</p>
+              </div>
+            </li>
+            <li>
+              <button onclick="toggleContactDropdown()">Contact Me</button>
+              <div id="contactDropdown" class="dropdown">
+                <p>Email: ojaswa@example.com</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Location: 123 Main Street, Hometown, Country</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          Hi my name is <span class="purple">ojaswa</span>
+          <div>I am a passionate</div>
+          <span id="element"></span>
+        </div>
+        <div class="rightSection">
+          <img src="bg.png" alt="" />
+        </div>
+      </section>
+      <hr />
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="footer-first">
+          <h3>ojaswa's portfolio</h3>
+        </div>
+        <div class="footer-second"></div>
+        <div class="footer-third"></div>
+        <div class="footer-fourth"></div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["web developer", "Machine Learning Engineer."],
+        typeSpeed: 50,
+      });
+
+      function toggleContactDropdown() {
+        document.getElementById("contactDropdown").classList.toggle("show");
+      }
+
+      function toggleServicesDropdown() {
+        document.getElementById("servicesDropdown").classList.toggle("show");
+      }
+
+      function toggleProjectsDropdown() {
+        document.getElementById("projectsDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function (event) {
+        if (!event.target.matches("button")) {
+          var dropdowns = document.getElementsByClassName("dropdown");
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
