@@ -2,7 +2,7 @@ import streamlit as st
 
 def main():
     # Read the contents of the HTML file
-    with open("https://github.com/ojaswagit/portfolio/blob/main/mainportfolio.html", "r", encoding="utf-8") as f:
+    with open("C:\Users\Exam3\Desktop\mainportfolio.html", "r", encoding="utf-8") as f:
         html_content = f.read()
 
     # Embed the HTML content within the Streamlit app
